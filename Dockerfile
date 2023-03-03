@@ -1,6 +1,8 @@
 FROM openjdk:17
 
-COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
-RUN javac Main.java
-CMD ["java", "Main"]
+COPY target/backend-0.0.1-SNAPSHOT.jar /usr/src/myapp
+
+EXPOSE 5578
+
+CMD ["java", "-jar" , "backend-0.0.1-SNAPSHOT.jar"]
